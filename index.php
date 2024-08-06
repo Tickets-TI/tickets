@@ -87,7 +87,7 @@
                             <a href="#" id="btnsoporte">Acceso Soporte</a>
                         </div>
                         <div class="float-right reset">
-                            <a href="reset-password.html">Cambiar contraseña</a>
+                            <a href="./view/ResetPassword/index.php">Recuperar contraseña</a>
                         </div>
                     </div>
                     <input type="hidden" name="enviar" class="form-control" value="si">

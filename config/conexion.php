@@ -19,7 +19,7 @@
             }
 
             public function ruta(){
-                return "http://localhost/TI-Tickets/";
+                return "http://localhost/TI-Desk/";
             }
         }
 ?>

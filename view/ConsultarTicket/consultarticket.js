@@ -124,7 +124,7 @@ $(document).ready(function(){
 
 
 function ver(tick_id){
-    window.open('http://localhost/TI-Tickets/view/DetalleTicket/?ID='+tick_id+'');
+    window.open('http://localhost/TI-Desk/view/DetalleTicket/?ID='+tick_id+'');
 }
 
 init();

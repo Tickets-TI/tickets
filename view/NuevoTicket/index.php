@@ -86,6 +86,6 @@ if(isset($_SESSION["usu_id"])){
 </html>
 <?php
 } else {
-	header("Location:"."http://localhost/TI-Tickets/"."index.php");
+	header("Location:"."http://localhost/TI-Desk/"."index.php");
 }
 ?>
