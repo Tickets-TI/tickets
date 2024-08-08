@@ -37,13 +37,13 @@
           remove: 'Eliminar la imagen',
           original: 'Original',
         }, */
-        video: {
+        /* video: {
           video: 'Vídeo',
           videoLink: 'Enlace del vídeo',
           insert: 'Insertar un vídeo',
           url: 'URL del vídeo',
           providers: '(YouTube, Vimeo, Vine, Instagram, DailyMotion o Youku)',
-        },
+        }, */
         link: {
           link: 'Enlace',
           insert: 'Insertar un enlace',

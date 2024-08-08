@@ -15,7 +15,7 @@
             $data= Array();
             foreach($datos as $row){
                 $sub_array = array();
-                $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="bt-none"><div>#<i class="">'.$row["tick_id"]. '</i></div></button>';
+                $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="bt-none"><div><i class="">'.$row["tick_id"]. '</i></div></button>';
                 $sub_array[] = $row["cat_nom"];
                 $sub_array[] = $row["tick_titulo"];
 
@@ -45,7 +45,7 @@
             $data= Array();
             foreach($datos as $row){
                 $sub_array = array();
-                $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="bt-none"><div>#<i class="">'.$row["tick_id"]. '</i></div></button>';
+                $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');" id="'.$row["tick_id"].'" class="bt-none"><div><i class="">'.$row["tick_id"]. '</i></div></button>';
                 $sub_array[] = $row["cat_nom"];
                 $sub_array[] = $row["tick_titulo"];
                 if ($row["tick_estado"] == "Abierto") {
@@ -141,6 +141,10 @@
                 }
                 echo json_encode($output);
             }
+        break;
+        case "insertdetalle":
+            $ticket->insert_ticketdetalle($_POST["tick_id"],$_POST["usu_id"],$_POST["tickd_descrip"]);
+            
         break;
     }
 ?>
