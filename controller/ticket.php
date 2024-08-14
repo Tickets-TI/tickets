@@ -9,6 +9,10 @@
             $ticket->insert_ticket($_POST["usu_id"],$_POST["cat_id"],$_POST["tick_titulo"],$_POST["tick_descrip"]);
             
         break;
+        case "update":
+            $ticket->update_ticket($_POST["tick_id"]);
+            $ticket->insert_ticketdetalle_cerrar($_POST["tick_id"], $_POST["usu_id"]);
+        break; 
 
         case "listar_x_usu":
             $datos=$ticket->listar_ticket_x_usu($_POST["usu_id"]);
@@ -125,14 +129,17 @@
                     $output["tick_id"] = $row["tick_id"];
                     $output["usu_id"] = $row["usu_id"];
                     $output["cat_id"] = $row["cat_id"];
-                    $output["tick_titulo"] = $row["tick_titulo"];
+
                     $output["tick_titulo"] = $row["tick_titulo"];
                     $output["tick_descrip"] = $row["tick_descrip"];
+
                     if ($row["tick_estado"] == "Abierto") {
                         $output["tick_estado"] = '<span class="label label-pill label-success">Abierto</span>';
                     } else {
                         $output["tick_estado"] = '<span class="label label-pill label-danger">Cerrado</span>';
                     }
+
+                    $output["tick_estado_texto"] = $row["tick_estado"];
 
                     $output["fech_crea"] = date("d/m/Y H:i:s", strtotime($row["fech_crea"]));
                     $output["usu_nom"] = $row["usu_nom"];

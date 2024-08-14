@@ -63,8 +63,8 @@ $(document).on("click","#btnenviar", function(){
 
 $(document).on("click","#btncerrarticket", function(){
     swal({
-        title: "HelpDesk",
-        text: "Esta seguro de Cerrar el Ticket?",
+        title: "TI Desk",
+        text: "¿Esta seguro de Cerrar el Ticket?",
         type: "warning",
         showCancelButton: true,
         confirmButtonClass: "btn-warning",
@@ -85,7 +85,7 @@ $(document).on("click","#btncerrarticket", function(){
             swal({
                 title: "HelpDesk!",
                 text: "Ticket Cerrado correctamente.",
-                type: "success",
+                type: "success", 
                 confirmButtonClass: "btn-success"
             });
         }
@@ -110,7 +110,7 @@ function listardetalle(tick_id){
         $('#tickd_descripusu').summernote ('code',data.tick_descrip);
 
         console.log( data.tick_estado_texto);
-        if (data.tick_estado_texto == "Cerrado"){
+        if (data.tick_estado_texto == "Cerrado"){ 
             $('#pnldetalle').hide();
         }
     }); 
