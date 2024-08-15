@@ -36,6 +36,12 @@ if ($_SESSION["rol_id"]==1) {
                         <span class="lbl">Inicio</span>
                     </a>
                 </li>
+                <li class="blue-dirty">
+                    <a href="..\MntUsuario\">
+                        <span class="glyphicon glyphicon-th"></span>
+                        <span class="lbl">Usuarios</span>
+                    </a>
+                </li>
 
                 <li class="blue-dirty">
                     <a href="..\ConsultarTicket\">

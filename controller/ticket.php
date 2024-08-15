@@ -68,7 +68,7 @@
                 "iTotalRecords"=>count($data),
                 "iTotalDisplayRecords"=>count($data),
                 "aaData"=>$data);
-                echo json_encode($results);
+            echo json_encode($results);
         break;
 
         case "listardetalle":
@@ -85,7 +85,7 @@
                                         <div class="activity-line-item-user">
                                             <div class="activity-line-item-user-photo">
                                                 <a href="#">
-                                                    <img src="../../public/img/photo-64-2.jpg" alt="">
+                                                    <img src="../../public/<?php echo $row['rol_id']?>.jpg" alt="">
                                                 </a>
                                             </div>
                                             <div class="activity-line-item-user-name"><?php echo $row['usu_nom'].' '.$row['usu_ape']?></div>

@@ -110,7 +110,7 @@ function listardetalle(tick_id){
         $('#tickd_descripusu').summernote ('code',data.tick_descrip);
 
         console.log( data.tick_estado_texto);
-        if (data.tick_estado_texto == "Cerrado"){ 
+        if (data.tick_estado_texto == "Cerrado"){  
             $('#pnldetalle').hide();
         }
     }); 
