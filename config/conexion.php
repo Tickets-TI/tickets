@@ -20,6 +20,7 @@
 
             public function ruta(){
                 return "http://localhost/TI-Desk/";
+                //return "https://tidesk.grupoccima.com/";
             }
         }
 ?>

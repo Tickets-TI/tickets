@@ -103,5 +103,6 @@ if(isset($_SESSION["usu_id"])){
 <?php
 } else {
 	header("Location:"."http://localhost/TI-Desk/"."index.php");
+	//header("Location:"."https://tidesk.grupoccima.com/"."index.php");
 }
 ?>

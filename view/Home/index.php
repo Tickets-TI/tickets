@@ -15,7 +15,7 @@ if(isset($_SESSION["usu_id"])){
     <?php require_once("../MainHeader/header.php");?>
 
     <div class="mobile-menu-left-overlay"></div>
-
+    
     <?php require_once("../MainNav/nav.php");?>
 
 	<!-- Contenido -->
@@ -60,16 +60,7 @@ if(isset($_SESSION["usu_id"])){
 					<div id="divgrafico" style="height: 250px;"></div>
 				</div>
 			</section>
-
-			<section class="card">
-				<header class="card-header">
-					Calendario
-				</header>
-				<div class="card-block">
-					<div id="idcalendar"></div>
-				</div>
-			</section>
-
+			
 		</div>
 	</div>
 	<!-- Contenido -->
@@ -78,18 +69,13 @@ if(isset($_SESSION["usu_id"])){
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-
-	<script type="text/javascript" src="../../public/js/lib/moment/moment-with-locales.min.js"></script>
-	<script src="../../public/js/lib/fullcalendar/fullcalendar.min.js"></script>
-
 	<script type="text/javascript" src="home.js"></script>
-
-	<script type="text/javascript" src="../notificacion.js"></script>
 
 </body>
 </html>
 <?php
 } else {
 	header("Location:"."http://localhost/TI-Desk/"."index.php");
+	//header("Location:"."https://tidesk.grupoccima.com/"."index.php");
 }
 ?>

@@ -3,7 +3,6 @@
     require_once("../models/Usuario.php");
     $usuario = new Usuario();
 
-
     switch($_GET["op"]){
         case "guardar y editar":
             if(empty($_POST["usu_id"])){
@@ -26,16 +25,15 @@
                 $sub_array[] = $row["usu_correo"];
                 $sub_array[] = $row["usu_pass"];
 
-                if ($row["rol_id"] == "1") {
+                if ($row["rol_id"]=="1"){
                     $sub_array[] = '<span class="label label-pill label-success">Usuario</span>';
-                } else {
+                }else{
                     $sub_array[] = '<span class="label label-pill label-info">Soporte</span>';
-                } 
+                }
 
-
-                $sub_array[] = '<button type="button" onClick="editar('.$row["usu_id"].');"  id="'.$row["usu_id"].'" class="btn btn-inline btn-warning btn-sm ladda-button"><i class="fa fa-edit"></i></button>';
-                $sub_array[] = '<button type="button" onClick="eliminar('.$row["usu_id"].');"  id="'.$row["usu_id"].'" class="btn btn-inline btn-danger btn-sm ladda-button"><i class="fa fa-trash"></i></button>';
-                $data [] = $sub_array;
+                /* $sub_array[] = '<button type="button" onClick="editar('.$row["usu_id"].');"  id="'.$row["usu_id"].'" class="btn btn-inline btn-warning btn-sm ladda-button"><i class="fa fa-edit"></i></button>';
+                $sub_array[] = '<button type="button" onClick="eliminar('.$row["usu_id"].');"  id="'.$row["usu_id"].'" class="btn btn-inline btn-danger btn-sm ladda-button"><i class="fa fa-trash"></i></button>'; */
+                $data[] = $sub_array;
             }
 
             $results = array(
@@ -65,8 +63,42 @@
                 echo json_encode($output);
             }
         break;
+        case "total";
+            $datos=$usuario->get_usuario_total_x_id($_POST["usu_id"]);  
+            if(is_array($datos)==true and count($datos)>0){
+                foreach($datos as $row)
+                {
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
+            }
+        break;
+
+        case "totalabierto";
+            $datos=$usuario->get_usuario_totalabierto_x_id($_POST["usu_id"]);  
+            if(is_array($datos)==true and count($datos)>0){
+                foreach($datos as $row)
+                {
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
+            }
+        break;
+
+        case "totalcerrado";
+            $datos=$usuario->get_usuario_totalcerrado_x_id($_POST["usu_id"]);  
+            if(is_array($datos)==true and count($datos)>0){
+                foreach($datos as $row)
+                {
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
+            }
+        break;
+
+        case "grafico";
+            $datos=$usuario->get_usuario_grafico($_POST["usu_id"]);  
+            echo json_encode($datos);
+        break;
     }
-
-
-
 ?>

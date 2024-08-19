@@ -34,6 +34,7 @@
 			</header>
 
 			<div class="box-typical box-typical-padding">
+				<button type="button" id="btnnuevo" class="btn btn-inline btn-primary">Nuevo Registro</button>
 				<table id="usuario_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
 					<thead>
 						<tr>
@@ -42,8 +43,8 @@
 							<th class="d-none d-sm-table-cell" style="width: 40%;">Correo</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Contraseña</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Rol</th>
-							<th class="text-center" style="width: 5%;"></th>
-							<th class="text-center" style="width: 5%;"></th>
+							<!-- <th class="text-center" style="width: 5%;"></th>
+							<th class="text-center" style="width: 5%;"></th> -->
 						</tr>
 					</thead>
 					<tbody>
@@ -56,7 +57,10 @@
 	</div>
 	<!-- Contenido -->
 
+	
+
 	<?php require_once("../MainJs/js.php");?>
+	
 	
 	<script type="text/javascript" src="mntusuario.js"></script>
 
@@ -65,5 +69,6 @@
 <?php
   } else {
     header("Location:"."http://localhost/TI-Desk/"."index.php");
+	//header("Location:"."https://tidesk.grupoccima.com/"."index.php");
   }
 ?>

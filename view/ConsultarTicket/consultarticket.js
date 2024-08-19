@@ -19,10 +19,6 @@ $(document).ready(function(){
             lengthChange: false,
             colReorder: true,
             buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
-                    'csvHtml5',
-                    'pdfHtml5'
                    ],
             "ajax":{
                 url : '../../controller/ticket.php?op=listar_x_usu',
@@ -125,6 +121,7 @@ $(document).ready(function(){
 
 function ver(tick_id){
     window.open('http://localhost/TI-Desk/view/DetalleTicket/?ID='+tick_id+'');
+    //window.open('https://tidesk.grupoccima.com//view/DetalleTicket/?ID='+tick_id+'');
 }
 
 init();
