@@ -25,8 +25,8 @@
 						<div class="tbl-cell">
 							<h3>Perfil</h3>
 							<ol class="breadcrumb breadcrumb-simple">
-								<li><a href="#">Home</a></li>
-								<li class="active">Cambiar Contraseña</li>
+								<li><a href="./../Home/">Inicio</a></li>
+								<li class="active">Perfil</li>
 							</ol>
 						</div>
 					</div>
@@ -38,14 +38,14 @@
 				<div class="row">
 						<div class="col-lg-6">
 							<fieldset class="form-group">
-								<label class="form-label semibold" for="exampleInput">Nueva Contraseña</label>
+								<label class="form-label semibold" for="exampleInput">Nombre</label>
 								<input type="password" class="form-control" id="txtpass" name="txtpass">
 							</fieldset>
 						</div>
 
 						<div class="col-lg-6">
 							<fieldset class="form-group">
-								<label class="form-label semibold" for="exampleInput">Confirmar Contraseña</label>
+								<label class="form-label semibold" for="exampleInput">Apellidos</label>
 								<input type="password" class="form-control" id="txtpassnew" name="txtpassnew">
 							</fieldset>
 						</div>

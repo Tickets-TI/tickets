@@ -31,7 +31,7 @@ $(document).ready(function(){
                 ykeys: ['total'],
                 labels: ['Value'],
                 barColors: ["#1AB244"], 
-            });
+            }); 
         }); 
 
     }else{

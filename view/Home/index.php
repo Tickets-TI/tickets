@@ -52,7 +52,7 @@ if(isset($_SESSION["usu_id"])){
 				</div>
 			</div>
 
-			<section class="card">
+			<section class="card"> 
 				<header class="card-header">
 					Grafico Estadístico
 				</header>
@@ -67,9 +67,10 @@ if(isset($_SESSION["usu_id"])){
 
 	<?php require_once("../MainJs/js.php");?>
 
-	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script> -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 	<script type="text/javascript" src="home.js"></script>
+	<script type="text/javascript" src="grafico.js"></script>
 
 </body>
 </html>

@@ -18,15 +18,14 @@
 	<!-- Contenido -->
 	<div class="page-content">
 		<div class="container-fluid">
-
 			<header class="section-header">
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
-							<h3>Usuario</h3>
+							<h3>Mantenimiento Usuario</h3>
 							<ol class="breadcrumb breadcrumb-simple">
 								<li><a href="#">Home</a></li>
-								<li class="active">Usuario</li>
+								<li class="active">Mantenimiento Usuario</li>
 							</ol>
 						</div>
 					</div>
@@ -43,8 +42,8 @@
 							<th class="d-none d-sm-table-cell" style="width: 40%;">Correo</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Contraseña</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Rol</th>
-							<!-- <th class="text-center" style="width: 5%;"></th>
-							<th class="text-center" style="width: 5%;"></th> -->
+							<th class="text-center" style="width: 5%;"></th>
+							<th class="text-center" style="width: 5%;"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -58,6 +57,8 @@
 	<!-- Contenido -->
 
 	
+
+	<?php require_once("modalmantenimiento.php");?>
 
 	<?php require_once("../MainJs/js.php");?>
 	

@@ -83,7 +83,7 @@ $(document).on("click","#btncerrarticket", function(){
             listardetalle(tick_id);
 
             swal({
-                title: "HelpDesk!",
+                title: "TI Desk!",
                 text: "Ticket Cerrado correctamente.",
                 type: "success", 
                 confirmButtonClass: "btn-success"

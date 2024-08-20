@@ -14,7 +14,7 @@
           size: 'Tamaño de la fuente',
           sizeunit: 'Unidad del tamaño de letra',
         },
-        /* image: {
+        image: {
           image: 'Imagen',
           insert: 'Insertar imagen',
           resizeFull: 'Redimensionar a tamaño completo',
@@ -36,7 +36,7 @@
           url: 'URL de la imagen',
           remove: 'Eliminar la imagen',
           original: 'Original',
-        }, */
+        },
         /* video: {
           video: 'Vídeo',
           videoLink: 'Enlace del vídeo',

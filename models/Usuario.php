@@ -144,7 +144,16 @@
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $usu_id);
             $sql->execute();
-            return $resultado=$sql->fetchAll();
+            return $resultado=$sql->fetchAll(); 
         } 
+        public function get_usuario_x_correo($usu_correo){
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="SELECT * FROM tm_usuario WHERE usu_correo=?";
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1, $usu_correo);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
     }
 ?>

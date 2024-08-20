@@ -25,6 +25,10 @@
                         <label class="form-label" for="usu_correo">Correo Electronico</label>
                         <input type="email" class="form-control" id="usu_correo" name="usu_correo" placeholder="test@test.com" required>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label" for="usu_telefono">Telefono</label>
+                        <input type="text" class="form-control" id="usu_telefono" name="usu_telefono" placeholder="4422101616" required>
+                    </div>
 
                     <div class="form-group">
                         <label class="form-label" for="usu_pass">Contraseña</label>

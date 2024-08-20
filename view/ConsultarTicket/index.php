@@ -27,7 +27,7 @@ if(isset($_SESSION["usu_id"])){
 						<div class="tbl-cell">
 							<h3>Consultar Ticket</h3>
 							<ol class="breadcrumb breadcrumb-simple">
-								<li><a href="../Home">Home</a></li>
+								<li><a href="./../Home/">Inicio</a></li>
 								<li class="active">Consultar Ticket</li>
 							</ol>
 						</div>
