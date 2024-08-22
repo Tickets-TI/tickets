@@ -26,8 +26,8 @@
                         <input type="email" class="form-control" id="usu_correo" name="usu_correo" placeholder="test@test.com" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="usu_telefono">Telefono</label>
-                        <input type="text" class="form-control" id="usu_telefono" name="usu_telefono" placeholder="4422101616" required>
+                        <label class="form-label" for="telefono">Telefono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="4422101616" required>
                     </div>
 
                     <div class="form-group">
@@ -41,6 +41,10 @@
                             <option value="1">Usuario</option>
                             <option value="2">Soporte</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="area">Area</label>
+                        <input type="text" class="form-control" id="area" name="area" placeholder="Administracion" required>
                     </div>
 
                 </div>

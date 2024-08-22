@@ -8,10 +8,12 @@
             $datos= $usuario->get_usuario_x_correo($_POST["usu_correo"]);
             if(count($datos)==0){
                 if(empty($_POST["usu_id"])){
-                    $usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_telf"]);
+                    $usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["telefono"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["area"]);
+                    //$usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);
                     echo "1";
                 } else {
-                    $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_telf"]);
+                    //$usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["telefono"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["area"]);
+                    $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);
                     echo "2";
                 }
             }else{
@@ -27,7 +29,9 @@
                 $sub_array[] = $row["usu_nom"];
                 $sub_array[] = $row["usu_ape"];
                 $sub_array[] = $row["usu_correo"];
+                //$sub_array[] = $row["telefono"];
                 $sub_array[] = $row["usu_pass"];
+                //$sub_array[] = $row["area"];
 
                 if ($row["rol_id"]=="1"){
                     $sub_array[] = '<span class="label label-pill label-success">Usuario</span>';
@@ -61,8 +65,10 @@
                     $output["usu_nom"] = $row["usu_nom"];
                     $output["usu_ape"] = $row["usu_ape"];
                     $output["usu_correo"] = $row["usu_correo"];
+                    $output["telefono"] = $row["telefono"];
                     $output["usu_pass"] = $row["usu_pass"];
                     $output["rol_id"] = $row["rol_id"];
+                    $output["area"] = $row["area"];
                 }
                 echo json_encode($output);
             }

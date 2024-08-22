@@ -7,6 +7,7 @@
             protected function Conexion(){
                 try{
                     $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=helpdesk", "root","");
+                    //$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=tidesk", "root","");
                     return $conectar;
                 } catch (Exception $e) {
                     print "¡Error BD!: " .$e->getMessage()."<br/>";
