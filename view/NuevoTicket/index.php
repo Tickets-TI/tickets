@@ -25,8 +25,19 @@ if(isset($_SESSION["usu_id"])){
 						<div class="tbl-cell">
 							<h3>Nuevo Ticket</h3>
 							<ol class="breadcrumb breadcrumb-simple">
+                                <?php
+                                    if($_SESSION["rol_id"]==1){
+                                ?>
+								<li><a href="#">Inicio</a></li>
+                                <li class="active">Nuevo Ticket</li>
+                                <?php
+                                    } else {
+                                 ?>
 								<li><a href="./../Home/">Inicio</a></li>
 								<li class="active">Nuevo Ticket</li>
+                                <?php
+                                    }
+                                ?>
 							</ol>
 						</div>
 					</div>
@@ -46,6 +57,12 @@ if(isset($_SESSION["usu_id"])){
                             
                             <input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
 
+                            <div class="col-lg-12">
+                                <fieldset class="form-group">
+                                    <label class="form-label semibold" for="tick_titulo">Titulo</label>
+                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Titulo">
+                                </fieldset>
+                            </div>
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
                                     <label class="form-label semibold" for="exampleInput">Categoria</label>
@@ -54,12 +71,14 @@ if(isset($_SESSION["usu_id"])){
                                     </select>
                                 </fieldset>
                             </div>
+
                             <div class="col-lg-6">
                                 <fieldset class="form-group">
-                                    <label class="form-label semibold" for="tick_titulo">Titulo</label>
-                                    <input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Titulo">
+                                <label class="form-label semibold" for="exampleInput">Documentos</label>
+                                <input type="file" name="fileElem" id="fileElem" class="form-control" multiple>
                                 </fieldset>
                             </div>
+                            
                             <div class="col-lg-12">
                                 <fieldset class="form-group">
                                     <label class="form-label semibold" for="tick_descrip">Descripción</label>

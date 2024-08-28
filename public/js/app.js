@@ -231,7 +231,7 @@ $(document).ready(function(){
 			// http://localhost/PERSONAL_HelpDesk/
 			//$.fn.http://localhost/PERSONAL_HelpDesk/.defaults.set("minimumResultsForSearch", "Infinity");
 	
-			$('.http://localhost/Ti-Desk/').not('.manual').http://localhost/PERSONAL_HelpDesk/();
+			$('.http://localhost/Ti-Desk/').not('.manual').http//localhost/PERSONAL_HelpDesk/();
 	
 			$(".http://localhost/Ti-Desk/-icon").not('.manual').http://localhost/PERSONAL_HelpDesk/({
 				templateSelection: http://localhost/PERSONAL_HelpDesk/Icons,

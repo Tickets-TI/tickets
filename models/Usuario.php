@@ -20,11 +20,15 @@
                     $stmt->execute();
                     $resultado = $stmt->fetch();
                     if (is_array($resultado) and count($resultado)>0){
-                        $_SESSION["usu_id"]=$resultado["usu_id"];
+                        $_SESSION["usu_id"]=$resultado["usu_id"]; 
                         $_SESSION["usu_nom"]=$resultado["usu_nom"];
                         $_SESSION["usu_ape"]=$resultado["usu_ape"];
                         $_SESSION["rol_id"]=$resultado["rol_id"];
-                        header("Location:".Conectar::ruta()."view/Home/");
+                        if($_SESSION["rol_id"]==1){
+                            header("Location:".conectar::ruta()."view/NuevoTicket");
+                        } else {
+                            header("Location:".Conectar::ruta()."view/Home/");
+                        }
                         exit(); 
                     }else{
                         header("Location:".Conectar::ruta()."index.php?m=1");
@@ -37,7 +41,6 @@
         public function insert_usuario($usu_nom,$usu_ape,$usu_correo, $telefono, $usu_pass,$rol_id, $area){
             $conectar= parent::conexion();
             parent::set_names();
-            //$sql="INSERT INTO tm_usuario (usu_id, usu_nom, usu_ape, usu_correo, usu_pass, rol_id, fecha_crea, fecha_modi, fecha_eli, est) VALUES (NULL,?,?,?,?,?,now(), NULL, NULL, '1');";
             $sql="INSERT INTO tm_usuario (usu_id, usu_nom, usu_ape, usu_correo, telefono, usu_pass, rol_id, fecha_crea, fecha_modi, fecha_eli, est, area) VALUES (NULL,?,?,?,?,?,?,now(), NULL, NULL, '1',?);";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $usu_nom);
@@ -51,28 +54,28 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function update_usuario($usu_id,$usu_nom,$usu_ape,$usu_correo, $usu_pass,$rol_id){
+        public function update_usuario($usu_id,$usu_nom,$usu_ape,$usu_correo, $telefono, $usu_pass,$rol_id, $area){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="UPDATE tm_usuario set
                 usu_nom = ?,
                 usu_ape = ?,
                 usu_correo = ?,
-                /* telefono = ?, */
+                telefono = ?,
                 usu_pass = ?,
-                rol_id = ?
-                /* area = ? */
+                rol_id = ?,
+                area = ? 
                 WHERE
                 usu_id = ?";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, $usu_nom);
             $sql->bindValue(2, $usu_ape);
             $sql->bindValue(3, $usu_correo);
-            //$sql->bindValue(4, $telefono);
-            $sql->bindValue(4, $usu_pass);
-            $sql->bindValue(5, $rol_id);
-            //$sql->bindValue(7, $area);
-            $sql->bindValue(6, $usu_id);
+            $sql->bindValue(4, $telefono);
+            $sql->bindValue(5, $usu_pass);
+            $sql->bindValue(6, $rol_id);
+            $sql->bindValue(7, $area);
+            $sql->bindValue(8, $usu_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
@@ -91,6 +94,15 @@
             $conectar= parent::conexion();
             parent::set_names();
             $sql="SELECT * FROM tm_usuario where est =1";
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
+
+        public function get_usuario_x_rol(){
+            $conectar= parent::conexion();
+            parent::set_names();
+            $sql="SELECT * FROM tm_usuario where est = 1 and rol_id =2";
             $sql=$conectar->prepare($sql);
             $sql->execute();
             return $resultado=$sql->fetchAll();

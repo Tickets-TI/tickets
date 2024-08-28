@@ -91,10 +91,10 @@ function editar(usu_id){
         $('#usu_nom').val(data.usu_nom);
         $('#usu_ape').val(data.usu_ape);
         $('#usu_correo').val(data.usu_correo);
-        //$('#telefono').val(data.telefono);
+        $('#telefono').val(data.telefono);
         $('#usu_pass').val(data.usu_pass);
         $('#rol_id').val(data.rol_id).trigger('change');
-        //$('#area').val(data.area);
+        $('#area').val(data.area);
     }); 
 
     $('#modalmantenimiento').modal('show');

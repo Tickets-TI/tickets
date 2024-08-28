@@ -5,20 +5,18 @@
 
     switch($_GET["op"]){
         case "guardaryeditar":
-            $datos= $usuario->get_usuario_x_correo($_POST["usu_correo"]);
-            if(count($datos)==0){
+           /*  $datos= $usuario->get_usuario_x_correo($_POST["usu_correo"]);
+            if(count($datos)==0){ */
                 if(empty($_POST["usu_id"])){
                     $usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["telefono"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["area"]);
-                    //$usuario->insert_usuario($_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);
                     echo "1";
                 } else {
-                    //$usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["telefono"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["area"]);
-                    $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["usu_pass"],$_POST["rol_id"]);
+                    $usuario->update_usuario($_POST["usu_id"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_correo"],$_POST["telefono"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["area"]);
                     echo "2";
                 }
-            }else{
+            /* }else{
                 echo "0";
-            }
+            } */
             break;
 
         case "listar":
@@ -29,9 +27,9 @@
                 $sub_array[] = $row["usu_nom"];
                 $sub_array[] = $row["usu_ape"];
                 $sub_array[] = $row["usu_correo"];
-                //$sub_array[] = $row["telefono"];
+                $sub_array[] = $row["telefono"];
                 $sub_array[] = $row["usu_pass"];
-                //$sub_array[] = $row["area"];
+                $sub_array[] = $row["area"];
 
                 if ($row["rol_id"]=="1"){
                     $sub_array[] = '<span class="label label-pill label-success">Usuario</span>';
@@ -109,6 +107,17 @@
         case "grafico";
             $datos=$usuario->get_usuario_grafico($_POST["usu_id"]);  
             echo json_encode($datos);
+        break;
+
+        case "combo";
+        $datos = $usuario->get_usuario_x_rol();
+        if(is_array($datos)==true and count ($datos)>0){
+            $html.= "<option label='Seleccionar'></option>";
+            foreach($datos as $row){
+                $html.= "<option value='".$row["usu_id"]."'>".$row["usu_nom"]."</option>";
+            }
+            echo $html;
+        }
         break;
     }
 ?> 

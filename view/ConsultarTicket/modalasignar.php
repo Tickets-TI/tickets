@@ -12,8 +12,8 @@
                     <input type="hidden" id="tick_id" name="tick_id">
 
                     <div class="form-group">
-                        <label class="form-label" for="usu_asig">Soporte</label>
-                        <select class="select2" id="usu_asig" name="usu_asig" data-placeholder="Seleccionar" required>
+                        <label class="form-label" for="usu_asign">Soporte</label>
+                        <select class="form-control" id="usu_asign" name="usu_asign" data-placeholder="Agente" required>
 
                         </select>
                     </div>

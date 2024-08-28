@@ -27,8 +27,19 @@ if(isset($_SESSION["usu_id"])){
 						<div class="tbl-cell">
 							<h3>Consultar Ticket</h3>
 							<ol class="breadcrumb breadcrumb-simple">
-								<li><a href="./../Home/">Inicio</a></li>
-								<li class="active">Consultar Ticket</li>
+								<?php
+									if($_SESSION["rol_id"]==1){
+									?>
+													<li><a href="#">Inicio</a></li>
+									<li class="active">Consultar Ticket</li>
+									<?php
+										} else {
+									?>
+									<li><a href="./../Home/">Inicio</a></li>
+									<li class="active">Consultar Ticket</li>
+									<?php
+										}
+								?>
 							</ol>
 						</div>
 					</div>
@@ -53,51 +64,6 @@ if(isset($_SESSION["usu_id"])){
 			<!-- <input type="button" id="btnLlamar" value="Agregar ticket" class="btn btn-primary"> -->
 
 
-			<!-- Inicio Modal -->
-			<form method="post" id="ticket_form">
-
-				<div id="miModal" class="modal fade show" role="dialog" aria-hideen="true">
-					<div class="modal-dialog modal-lg">
-
-					<div class="modal-content">
-							<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
-
-								<div class="col-lg-6">
-									<fieldset class="form-group">
-										<label class="form-label semibold" for="exampleInput">Categoria</label>
-										<select id="cat_id" name="cat_id"  class="form-control">
-											
-										</select>
-									</fieldset>
-								</div>
-
-								<div class="col-lg-6">
-											<fieldset class="form-group">
-												<label class="form-label semibold" for="tick_titulo">Titulo</label>
-												<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese Titulo">
-											</fieldset>
-								</div>
-								
-								<div class="col-lg-12">
-											<fieldset class="form-group">
-												<label class="form-label semibold" for="tick_descrip">Descripción</label>
-												<div class="summernote-theme-1" >
-													<textarea id="tick_descrip" class="summernote" name="tick_descrip"></textarea>
-												</div>
-											</fieldset>
-								</div>
-
-								<div class="col-lg-12">
-											<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button>
-								</div>
-					</div>
-								
-					</div>
-				</div>
-			</forn>
-
-			<!-- Fin Modal -->
-
 			<div class="box-typical box-typical-padding">
 				<table id="ticket_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
 					<thead>
@@ -107,6 +73,8 @@ if(isset($_SESSION["usu_id"])){
 							<th class="d-none d-sm-table-cell" style="width: 40%;">Titulo</th>
 							<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
 							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Creación</th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha Asignación</th>
+							<th class="d-none d-sm-table-cell" style="width: 10%;">Soporte</th>
 							<th class="text-center" style="width: 5%;"></th>
 						</tr>
 					</thead>
@@ -119,9 +87,13 @@ if(isset($_SESSION["usu_id"])){
 		</div>
 	</div>
 	<!-- Contenido -->
+
+	<?php require_once("modalasignar.php"); ?>
+
 	<?php require_once("../MainJs/js.php"); ?>
+
+
 	<script type="text/javascript" src="consultarticket.js"></script>
-	<script type="text/javascript" src="../NuevoTicket/nuevoticket.js"></script>
 </body>
 </html>
 <?php

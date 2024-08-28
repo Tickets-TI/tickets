@@ -18,7 +18,8 @@ if(isset($_SESSION["usu_id"])){
     
     <?php require_once("../MainNav/nav.php");?>
 
-	<!-- Contenido -->
+	
+        <!-- Contenido -->
 	<div class="page-content">
 		<div class="container-fluid">
 			<div class="row">
@@ -64,6 +65,7 @@ if(isset($_SESSION["usu_id"])){
 		</div>
 	</div>
 	<!-- Contenido -->
+
 
 	<?php require_once("../MainJs/js.php");?>
 
