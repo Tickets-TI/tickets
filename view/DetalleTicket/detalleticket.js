@@ -38,7 +38,7 @@ $(document).ready(function(){
         buttons: [
                 ],
         "ajax":{
-            url: '../../controller/documento.php?op=listar',
+            url: './../../controller/documento.php?op=listar',
             type : "post",
             data : {tick_id:tick_id},
             dataType : "json",

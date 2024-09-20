@@ -51,7 +51,7 @@ function guardaryeditar(e){
         for (var i = 0; i < totalfiles; i++) {
             formData.append("files[]", $('#fileElem')[0].files[i]);
         }
-
+        console.log(formData);
         $.ajax({
             url: "../../controller/ticket.php?op=insert",
             type: "POST",
