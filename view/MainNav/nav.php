@@ -14,7 +14,7 @@ if ($_SESSION["rol_id"]==1) {
                 <li class="blue-dirty">
                     <a href="..\ConsultarTicket\">
                         <span class="glyphicon glyphicon-th"></span>
-                        <span class="lbl">Consultar Ticket</span>
+                        <span class="lbl" id="cambiar">Consultar Ticket</span>
                     </a>
                 </li>
             </ul>
@@ -48,4 +48,5 @@ if ($_SESSION["rol_id"]==1) {
     <?php
 }
 
-?>
+?> 
+ <script type="text/javascript" src="nav.js"></script>

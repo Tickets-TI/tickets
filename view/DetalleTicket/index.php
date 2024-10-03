@@ -117,12 +117,12 @@ if(isset($_SESSION["usu_id"])){
               if ($_SESSION["rol_id"]==1) {
             ?>
               <button type="button" id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
-              <button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-warning">Cerrar
-                Ticket</button>
             <?php
                   } else {
             ?>
                 <button type="button" id="btnenviar" class="btn btn-rounded btn-inline btn-primary">Enviar</button>
+                <button type="button" id="btncerrarticket" class="btn btn-rounded btn-inline btn-warning">Cerrar
+                Ticket</button>
                 <?php
                   }
                 ?>

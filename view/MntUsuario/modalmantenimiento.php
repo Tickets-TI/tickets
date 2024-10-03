@@ -44,9 +44,17 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="area">Area</label>
-                        <input type="text" class="form-control" id="area" name="area" placeholder="Administracion" required>
+                        <!-- <input type="text" class="form-control" id="area" name="area" placeholder="Administracion" required> -->
+                        <select class="select2" id="area" name="area">
+                            <option>Sistemas</option>
+                            <option>Juridico</option>
+                            <option>Administracion</option>
+                            <option>Rentas</option>
+                            <option>Almacen</option>
+                            <option>Proyectos</option>
+                        </select>
                     </div>
-
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Cerrar</button>

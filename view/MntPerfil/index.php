@@ -35,24 +35,36 @@
 
 			<div class="box-typical box-typical-padding">
 
-				<div class="row">
+				<div class="row"> 
 						<div class="col-lg-6">
 							<fieldset class="form-group">
-								<label class="form-label semibold" for="exampleInput">Nombre</label>
-								<input type="password" class="form-control" id="txtpass" name="txtpass">
+								<label class="form-label semibold" for="usu_nom">Nombre</label>
+								<input type="texto" class="form-control" id="usu_nom" name="usu_nom" readonly>
 							</fieldset>
 						</div>
 
 						<div class="col-lg-6">
 							<fieldset class="form-group">
-								<label class="form-label semibold" for="exampleInput">Apellidos</label>
-								<input type="password" class="form-control" id="txtpassnew" name="txtpassnew">
+								<label class="form-label semibold" for="usu_ape">Apellidos</label>
+								<input type="password" class="form-control" id="usu_ape" name="usu_ape" readonly>
+							</fieldset>
+						</div>
+						<div class="col-lg-6">
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="usu_correo">Correo</label>
+								<input type="password" class="form-control" id="usu_correo" name="usu_correo" readonly>
+							</fieldset>
+						</div>
+						<div class="col-lg-6">
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="area">Area</label>
+								<input type="password" class="form-control" id="area" name="area" readonly>
 							</fieldset>
 						</div>
 
-						<div class="col-lg-12">
+						<!-- <div class="col-lg-12">
 							<button type="button" id="btnactualizar" class="btn btn-rounded btn-inline btn-primary">Actualizar</button>
-						</div>
+						</div> -->
 				</div>
 
 			</div>

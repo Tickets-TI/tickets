@@ -23,3 +23,16 @@ $(document).on("click","#btnactualizar", function(){
         }
     }
 });
+
+function listardatos(tick_id){
+
+    $.post("../../controller/usuario.php?op=mostrar", { usu_id : usu_id }, function (data) {
+        data = JSON.parse(data);
+
+        $('#usu_nom').val(data.usu_nom);
+        $('#usu_ape').val(data.usu_ape);
+        $('#usu_correo').val(data.usu_correo);
+        $('#area').val(data.area);
+
+    }); 
+}
