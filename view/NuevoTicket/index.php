@@ -6,6 +6,13 @@ if(isset($_SESSION["usu_id"])){
 <html>
     <?php require_once("../MainHead/head.php");?>
     <title>Nuevo Ticket</title>
+
+ <head> 
+    
+ <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  
 </head>
 <body class="with-side-menu">
 

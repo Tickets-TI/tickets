@@ -69,4 +69,46 @@ function guardaryeditar(e){
     }
 }
 
+
+let formularioCompleto = false;
+
+    // Verifica si los campos obligatorios están completados
+    function verificarFormulario() {
+      const titulo = document.getElementById('tick_titulo').value;
+      const categoria = document.getElementById('cat_id').value;
+      const documentos = document.getElementById('fileElem').value;
+      const descripcion = document.getElementById('tick_descrip').value;
+      // Si el campo 'nombre' o 'email' está vacío, el formulario no está completo
+      if (titulo && categoria && documentos && descripcion) {
+        formularioCompleto = true;
+      } else {
+        formularioCompleto = false;
+      }
+    }
+
+    // Verifica el estado del formulario antes de que el usuario intente salir
+    window.addEventListener('beforeunload', function(event) {
+      verificarFormulario();
+      if (!formularioCompleto) {
+        // Prevenir el comportamiento por defecto del navegador
+        event.preventDefault();
+
+        // Mostrar el modal de SweetAlert2
+        Swal.fire({
+          title: "¿Estás seguro?",
+          text: "No podrás revertir esta acción!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, quiero salir",
+          cancelButtonText: "Cancelar"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Si el usuario confirma, podemos proceder con el cambio de página o actualizar
+            window.location.href = document.referrer; // O redirigir a otra página si es necesario
+          }
+        });
+      }
+    });
 init();
