@@ -95,7 +95,7 @@ if(isset($_SESSION["usu_id"])){
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
-                                <button type="submit" name="action" value="add" class="btn btn-rounded btn__primary">Guardar</button>
+                                <button type="submit" name="action" value="add" id="mb" class="btn btn-rounded btn__primary">Guardar</button>
                             </div>
                         </form>
                     

@@ -1,10 +1,10 @@
+let formChanged = false;
+let intentionalSubmit = false; 
 
 function init(){
-   
     $("#ticket_form").on("submit",function(e){
         guardaryeditar(e);	
     });
-    
 }
 
 $(document).ready(function() {
@@ -39,19 +39,43 @@ $(document).ready(function() {
         $('#cat_id').html(data);
     });
 
+    // Detectar cambios en inputs y select
+    $('#ticket_form input, #ticket_form select').on('change', function() {
+        if (!intentionalSubmit) {
+            formChanged = true;
+        }
+    });
+
+    // Detectar cambios en Summernote
+    $('#tick_descrip').on('summernote.change', function() {
+        if (!intentionalSubmit) {
+            formChanged = true;
+        }
+    });
+
+
+    // Interceptar clicks en enlaces de navegación
+    $('a').not('[href="#"]').click(function(e) {
+        if (formChanged && !intentionalSubmit) {
+            if (!confirm('¿Está seguro que desea salir? Los cambios no guardados se perderán.')) {
+                e.preventDefault();
+            }
+        }
+    });
 });
 
 function guardaryeditar(e){
     e.preventDefault();
     var formData = new FormData($("#ticket_form")[0]);
-    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()==''){
+    if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='' || $('#cat_id').val()==''){
         swal("Advertencia!", "Campos Vacios", "warning");
     }else{
+        intentionalSubmit = true; // Indicar que es un envío intencional
         var totalfiles = $('#fileElem').val().length;
         for (var i = 0; i < totalfiles; i++) {
             formData.append("files[]", $('#fileElem')[0].files[i]);
         }
-        console.log(formData);
+        
         $.ajax({
             url: "../../controller/ticket.php?op=insert",
             type: "POST",
@@ -63,52 +87,21 @@ function guardaryeditar(e){
                 $('#tick_titulo').val('');
                 $('#tick_descrip').summernote('reset');
                 $('#fileElem').val('');
+                formChanged = false;
+                intentionalSubmit = false;
                 swal("Correcto!", "Registrado Correctamente", "success");
+                // Si necesitas recargar la página después del éxito:
+                // setTimeout(function() {
+                //     location.reload();
+                // }, 1500);
+            },
+            error: function(xhr, status, error) {
+                intentionalSubmit = false; // Resetear en caso de error
+                swal("Error!", "No se pudo registrar el ticket", "error");
+                console.error(xhr.responseText);
             }
         });
     }
 }
 
-
-let formularioCompleto = false;
-
-    // Verifica si los campos obligatorios están completados
-    function verificarFormulario() {
-      const titulo = document.getElementById('tick_titulo').value;
-      const categoria = document.getElementById('cat_id').value;
-      const documentos = document.getElementById('fileElem').value;
-      const descripcion = document.getElementById('tick_descrip').value;
-      // Si el campo 'nombre' o 'email' está vacío, el formulario no está completo
-      if (titulo && categoria && documentos && descripcion) {
-        formularioCompleto = true;
-      } else {
-        formularioCompleto = false;
-      }
-    }
-
-    // Verifica el estado del formulario antes de que el usuario intente salir
-    window.addEventListener('beforeunload', function(event) {
-      verificarFormulario();
-      if (!formularioCompleto) {
-        // Prevenir el comportamiento por defecto del navegador
-        event.preventDefault();
-
-        // Mostrar el modal de SweetAlert2
-        Swal.fire({
-          title: "¿Estás seguro?",
-          text: "No podrás revertir esta acción!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Sí, quiero salir",
-          cancelButtonText: "Cancelar"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Si el usuario confirma, podemos proceder con el cambio de página o actualizar
-            window.location.href = document.referrer; // O redirigir a otra página si es necesario
-          }
-        });
-      }
-    });
 init();
