@@ -51,7 +51,7 @@
         break;
 
         case "eliminar":
-            $ticket->delete_usuario($_POST["usu_id"]);
+            $usuario->delete_usuario($_POST["usu_id"]);
         break;
 
         case "mostrar":
